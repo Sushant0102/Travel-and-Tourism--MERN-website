@@ -9,14 +9,13 @@ import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import path from "path";
 const app = express();
-dotenv.config();
+dotenv.config(); // This line loads your .env file
 
 const __dirname = path.resolve();
 
 mongoose
-  // .connect(process.env.MONGO_URL)
+  .connect(process.env.MONGO_URL) // <-- This now securely reads from your .env file
   // .connect('mongodb+srv://sushantchandgude107_db_user:0prGPqgXWam2cWm7@cluster0.40mynpv.mongodb.net/')
-  .connect('mongodb+srv://rushikeshgaikwad83909:6OFuW0wxa05XoPmj@cluster0.4e9ynib.mongodb.net/')
   .then(() => {
     console.log("MongoDB Connected");
   })
